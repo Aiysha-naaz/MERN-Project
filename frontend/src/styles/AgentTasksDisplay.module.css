@@ -1,0 +1,32 @@
+.container {
+  margin-top: 2rem;
+  padding: 1rem;
+  border-top: 2px solid #ccc;
+}
+
+.title {
+  font-size: 24px;
+  margin-bottom: 1rem;
+}
+
+.agentCard {
+  background-color: #f9f9f9;
+  padding: 1rem;
+  margin-bottom: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+}
+
+.agentCard h3 {
+  color: #333;
+}
+
+.agentCard ul {
+  list-style: none;
+  padding: 0;
+}
+
+.agentCard li {
+  padding: 6px 0;
+  border-bottom: 1px solid #eee;
+}

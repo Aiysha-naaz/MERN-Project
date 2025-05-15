@@ -1,0 +1,219 @@
+/* src/styles/UploadCSV.module.css */
+
+/* Container and layout */
+.container {
+  max-width: 500px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.header {
+  text-align: center;
+  font-size: 2rem;
+  color: #333;
+  margin-bottom: 1.5rem;
+  background: linear-gradient(90deg, #6a11cb, #2575fc);
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+/* Form Styles */
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+/* File Input */
+.fileInput {
+  padding: 12px;
+  font-size: 1rem;
+  border: 2px solid #ddd;
+  border-radius: 8px;
+  background-color: #f7f7f7;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.fileInput:hover {
+  border-color: #2575fc;
+  background-color: #f0f9ff;
+}
+
+/* Button */
+.button {
+  padding: 12px;
+  background-color: #2575fc;
+  color: white;
+  font-size: 1.2rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.button:hover {
+  background-color: #6a11cb;
+  transform: translateY(-2px);
+}
+
+.button:active {
+  transform: translateY(0);
+}
+
+/* Message */
+.message {
+  font-size: 1rem;
+  text-align: center;
+  color: #e74c3c;
+  margin-top: 1.5rem;
+  font-weight: bold;
+}
+
+/* Container */
+.container {
+  max-width: 700px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #333;
+}
+
+/* Headers */
+.header {
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  text-align: center;
+  color: #2c3e50;
+}
+
+.subHeader {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  border-bottom: 2px solid #2980b9;
+  padding-bottom: 0.3rem;
+  color: #2980b9;
+}
+
+/* Form styling */
+.form {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.fileInput {
+  flex: 1;
+  padding: 0.5rem;
+  font-size: 1rem;
+  border: 2px solid #ddd;
+  border-radius: 4px;
+  transition: border-color 0.3s ease;
+}
+
+.fileInput:hover,
+.fileInput:focus {
+  border-color: #2980b9;
+  outline: none;
+}
+
+/* Button styling */
+.button {
+  background-color: #2980b9;
+  color: white;
+  border: none;
+  padding: 0.55rem 1.3rem;
+  font-size: 1rem;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background-color 0.3s ease;
+}
+
+.button:hover {
+  background-color: #1f6391;
+}
+
+/* Message */
+.message {
+  font-size: 1rem;
+  margin-top: 0.5rem;
+  color: #27ae60; /* green for success */
+  text-align: center;
+}
+
+/* Distributed lists container */
+.distributedLists {
+  margin-top: 2rem;
+}
+
+/* Each agent group */
+.agentGroup {
+  background-color: #f4f6f8;
+  border-radius: 6px;
+  padding: 1rem 1.5rem;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 2px 8px rgba(41, 128, 185, 0.1);
+}
+
+/* Agent title */
+.agentTitle {
+  margin-bottom: 0.8rem;
+  color: #34495e;
+  font-weight: 700;
+  font-size: 1.2rem;
+  border-left: 5px solid #2980b9;
+  padding-left: 0.8rem;
+}
+
+/* Task list */
+.taskList {
+  list-style-type: none;
+  padding-left: 0;
+  max-height: 250px;
+  overflow-y: auto;
+  border-top: 1px solid #ccc;
+  padding-top: 0.5rem;
+}
+
+/* Task item */
+.taskItem {
+  padding: 0.4rem 0;
+  font-size: 1rem;
+  border-bottom: 1px solid #ddd;
+  display: flex;
+  justify-content: flex-start;
+  gap: 1rem;
+  color: #2c3e50;
+}
+
+.taskItem:last-child {
+  border-bottom: none;
+}
+
+/* Task spans for visual grouping */
+.taskName {
+  flex-basis: 40%;
+  font-weight: 600;
+}
+
+.taskPhone {
+  flex-basis: 30%;
+  font-family: monospace;
+  color: #2980b9;
+}
+
+.taskNotes {
+  flex-basis: 30%;
+  font-style: italic;
+  color: #7f8c8d;
+}
