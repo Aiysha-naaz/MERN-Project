@@ -12,31 +12,81 @@ function AgentLeads() {
   const [loading, setLoading] = useState(false);
   const [error, setError]     = useState('');
 
-  // Fetch whenever agentId changes
-  useEffect(() => {
-    if (!agentId) return;
-    setLoading(true);
-    setError('');
+  // // Fetch whenever agentId changes
+  // useEffect(() => {
+  //   if (!agentId) return;
+  //   setLoading(true);
+  //   setError('');
+  //   setLeads([]);
+
+  //   axios.get(`http://localhost:5000/api/leads/${agentId}`)
+  //     .then(res => {
+  //       const list = res.data.leads || [];
+  //       if (!list.length) setError('No leads found for this agent.');
+  //       setLeads(list);
+  //     })
+  //     .catch(() => setError('Error fetching leads.'))
+  //     .finally(() => setLoading(false));
+  // }, [agentId]);
+
+  console.log('🐞 paramId:', paramId);
+console.log('🐞 agentId state:', agentId);
+
+useEffect(() => {
+  if (!agentId) return;
+
+  setLoading(true);
+  setError('');
+  setLeads([]);
+
+  const token = localStorage.getItem('token'); // ✅
+
+  axios
+    .get(`http://localhost:5000/api/leads/${agentId}`, {
+      headers: {
+        Authorization: `Bearer ${token}`, // ✅ must match backend!
+      },
+    })
+    .then(res => {
+      const list = res.data.leads || [];
+      if (!list.length) setError('No leads found for this agent.');
+      setLeads(list);
+    })
+    .catch(err => {
+      console.error('➡️ Leads API error:', err);
+      setError('Error fetching leads.');
+    })
+    .finally(() => setLoading(false));
+}, [agentId]);
+
+  // const handleSearch = () => {
+  //   if (!agentId.trim()) {
+  //     setError('Please enter a valid Agent ID');
+  //     setLeads([]);
+  //     return;
+  //   }
+  //   // triggers useEffect
+  // };
+
+  const isValidObjectId = (id) => /^[0-9a-fA-F]{24}$/.test(id.trim());
+
+const handleSearch = () => {
+  if (!agentId.trim()) {
+    setError('Please enter an Agent ID');
     setLeads([]);
+    return;
+  }
 
-    axios.get(`http://localhost:5000/api/leads/${agentId}`)
-      .then(res => {
-        const list = res.data.leads || [];
-        if (!list.length) setError('No leads found for this agent.');
-        setLeads(list);
-      })
-      .catch(() => setError('Error fetching leads.'))
-      .finally(() => setLoading(false));
-  }, [agentId]);
+  if (!isValidObjectId(agentId)) {
+    setError('❌ Invalid Agent ID format (must be 24 hex characters)');
+    setLeads([]);
+    return;
+  }
 
-  const handleSearch = () => {
-    if (!agentId.trim()) {
-      setError('Please enter a valid Agent ID');
-      setLeads([]);
-      return;
-    }
-    // triggers useEffect
-  };
+  // ✅ Good ID → triggers useEffect automatically
+  setError('');
+};
+
 
   return (
     <div style={styles.container}>
