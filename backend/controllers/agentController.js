@@ -81,6 +81,7 @@ exports.addAgent = async (req, res) => {
       return res.status(400).json({ message: 'Agent already exists under this admin' });
     }
 
+    const hashedPassword = await bcrypt.hash(password, 10);
     const agent = new Agent({
       name,
       email,

@@ -36,7 +36,7 @@ exports.forgotPassword = async (req, res) => {
     if (!user) return res.status(400).json({ message: 'User not found' });
 
     const resetToken = jwt.sign({ id: user._id }, process.env.JWT_SECRET, { expiresIn: '1h' });
-    const resetUrl = `http://192.168.1.21:3000/reset-password/${resetToken}`;
+    const resetUrl = `http://192.168.1.8:3000/reset-password/${resetToken}`;
 
     const transporter = nodemailer.createTransport({
       service: 'gmail',
